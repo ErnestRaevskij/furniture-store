@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-const { secretKey } = require('./config.js');
-
 class Token {
     generateAccessToken(id, role, lifeTime) {
         const payload = {
@@ -9,11 +7,11 @@ class Token {
             role,
         };
 
-        return jwt.sign(payload, secretKey, { expiresIn: lifeTime });
+        return jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: lifeTime });
     }
 
     verifyAccessToken(token) {
-        return jwt.verify(token, secretKey);
+        return jwt.verify(token, process.env.SECRET_KEY);
     }
 }
 

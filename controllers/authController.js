@@ -3,7 +3,7 @@ const Role = require('../models/Role');
 
 const validator = require('./authentication/validator.js');
 const hashing = require('./authentication/hashing.js'); 
-const token = require('../token/token.js');
+const token = require('../token.js');
 
 class AuthController {
     async registration(req, res) {
@@ -47,7 +47,7 @@ class AuthController {
 
             const accessToken = token.generateAccessToken(user._id, user.role, '24h');
 
-            return res.json({message: 'Successful login', token: accessToken}); 
+            return res.json({ message: 'Successful login', token: accessToken }); 
         } catch (error) {
             console.log(error);
             res.status(400);
