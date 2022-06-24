@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use('/auth', authRouter);
 app.use('/furniture', furnitureRouter);
-//app.use('/admin', adminRequestsRouter); // Роутер для добавления/удаления ролей
+app.use('/admin', adminRequestsRouter); 
 
 const start = async () => {
     try {

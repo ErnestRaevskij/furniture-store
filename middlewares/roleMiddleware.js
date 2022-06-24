@@ -9,12 +9,12 @@ module.exports = (roles) => {
 
             const { role } = req.user;
             if (!roles.includes(role))
-                return res.status(403).json({ message: `User don't have access` });
+                return res.status(403).json({ message: `You don't have access` });
                 
             next();
         } catch (error) {
             console.log(e);
-            return res.status(403).json({ message: `User don't have access` });
+            return res.status(403).json({ message: `You don't have access` });
         }
 
     }
